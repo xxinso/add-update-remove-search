@@ -1,0 +1,77 @@
+// 1.引入文件
+@import "base.scss";
+// title
+.font {
+    font: 400 18px/34px "微软雅黑";
+}
+
+.title {
+    width: 150px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 100px;
+}
+
+.button {
+    width: 900px;
+    height: 34px;
+    border: 1px solid #0094ff;
+    margin: 10px auto;
+    @extend .font;
+    #s_select {
+        width: 150px;
+        height: 28px;
+        @extend .font;
+    }
+    .anniu {
+        width: 100px;
+        height: 30px; // margin-top: 1px;
+        margin-right: 10px;
+         font: 400 18px/26px "微软雅黑";        
+    }
+}
+
+// person begin
+.person {
+    width: 900px;
+    height: 34px;
+    border: 1px solid #0094ff;
+    margin: 10px auto;
+    @extend .font;
+    .person_inp{
+        width: 130px;
+        height: 24px;
+        border: 1px solid #ccc;
+    }
+    #person_but{
+        width: 80px;
+        height: 31px;
+         font: 400 18px/26px "微软雅黑";
+        margin-left: 10px;
+        // margin-top: 2px;
+       
+    }
+}
+// person end
+// table begin
+#donate_table{
+    width: 900px;
+    margin: 0 auto;
+    @extend .font;
+    border: 1px solid #000;
+    text-align: center;
+    
+}
+.table_head{
+  background-color: #0094ff;
+  color: #ffffff;
+}
+
+.update{
+    width: 80%;
+    height: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+// table end

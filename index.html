@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/base.js"></script>
+    </script>
+</head>
+
+<body>
+    <h1 class="title">捐款管理</h1>
+    <!--button begin-->
+    <div class="button">
+        捐款单位:
+        <select id="s_select">
+         <option value="-1">--请选择--</option>
+         <option value="1">壹基金</option>
+         <option value="2">xx十字会</option>
+         <option value="3">宋庆龄基金</option>
+         <option value="4">全智咸基金</option>
+   </select>
+        <button class="anniu" id="search">查&nbsp询</button>
+        <button class="anniu" id="prev">上一页</button>
+        <button class="anniu" id="next">下一页</button> 当前页:
+        <span id="nowPage">1</span> /总页数:
+        <span id="totalPage">7</span>
+    </div>
+    <!--button end-->
+    <!--person begin-->
+    <div class="person">
+        捐款人:
+        <input class="person_inp" id="donate_person"> 单位:
+    <select id="b_select">
+         <option value="-1">--请选择--</option>
+         <option value="1">壹基金</option>
+         <option value="2">xx十字会</option>
+         <option value="3">宋庆龄基金</option>
+         <option value="4">全智咸基金</option>
+   </select> 金额:
+        <input class="person_inp" id="money"> 时间:
+        <input class="person_inp" id="time">
+        <button class "person_but" id="person_but">新&nbsp增</button>
+    </div>
+    <!--person end-->
+    <!--table begin-->
+    <table id="donate_table">
+        <thead>
+            <tr class="table_head">
+                <th>序号</th>
+                <th>捐款人</th>
+                <th>捐款单位</th>
+                <th>金额</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+
+        </tbody>
+    </table>
+</body>
+
+</html>
+<script>
+    var zsgc = new ZSGC();
+    // 删
+    function del(thiss) {
+        console.log(1);
+        var idNum = thiss.parentNode.parentNode.firstChild.innerHTML;
+        // //调用原型中的删除方法
+        zsgc.removedata(idNum);
+    }
+    // 改
+    function change(thiss) {
+        //获取到tr中每个td中的数据
+
+        var Tds = thiss.parentNode.parentNode.children;
+        zsgc.update(Tds);
+    };
+    // 点击编辑完成时触发的函数
+    function com(thiss) {
+        // 1.获取所有的input元素    
+        var Tds = thiss.parentNode.parentNode.children;
+        zsgc.compelite(Tds);
+    }
+    // 点击放弃时触发     
+    function giveup() {
+        this.id = 0;
+        zsgc.fenye();
+    }
+    // 获取上一页和下一页的按钮
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+    // 注册事件向前翻页   
+    prev.onclick = function () {
+        zsgc.prev();
+    }
+    //向后翻页
+    next.onclick = function () {
+        zsgc.next();
+    }
+
+    //查询事件
+    var search = document.getElementById("search");
+    search.onclick = function () {
+        // 在原型中查找search事件 
+        zsgc.search()
+    }
+</script>
